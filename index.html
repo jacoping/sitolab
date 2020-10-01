@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>DIDACOMMUNICATIONLAB</title>
+</head>
+<link rel="stylesheet" href="/css/hamburgers.css">
+<link rel="stylesheet" href="https://use.typekit.net/lrj7kma.css">
+
+<body>
+
+  <script type="text/javascript" src="./js/vue.js"> </script>
+
+
+  <style media="screen">
+    html,
+    body,
+    div {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-family: neue-haas-grotesk-display, sans-serif;
+      font-weight: 400;
+    }
+
+    html {
+      overflow: hidden;
+    }
+
+    .header {
+      height: 13vh;
+      padding: 20px 20px;
+    }
+
+    .header-colonna {
+      height: 4.25vh;
+    }
+
+    .colonna {
+      height: 82.75vh;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 2.1em;
+      margin-top: 0.2em;
+    }
+
+    .puntini {
+      font-size: 4em;
+      line-height: .1;
+      vertical-align: -250%;
+    }
+
+    .logoname {
+      margin-left: 0.5em;
+    }
+
+    .container-header-colonne {
+      display: flex;
+      background-color: black;
+      color: white;
+    }
+
+    .header-colonna {
+      width: 100%;
+      font-size: 1.5em;
+      padding-top: 0.3em;
+    }
+
+    .container-colonne {
+      display: flex;
+    }
+
+    .header-colonna,
+    .colonna {
+      padding-left: 3%;
+      padding-right: 3%;
+    }
+
+    .colonna {
+      width: 100%;
+      overflow: scroll;
+    }
+
+    .colonna1,
+    .colonna3 {
+      background-color: #eee;
+    }
+
+    .article {
+      padding-top: 30px;
+      padding-bottom: 60px;
+      border-bottom: 3px solid black;
+    }
+
+    .excerpt {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
+    .article-img img {
+      width: 100%;
+      height: auto;
+    }
+
+    .title {
+      font-size: 2.2em;
+      line-height: 0.9;
+      font-weight: 500;
+    }
+
+    .article-img,
+    .title,
+    .excerpt {
+      margin-top: 1em;
+    }
+  </style>
+
+  <div class="header">
+
+    <div class="logo">
+      <span class="puntini">•••</span>
+      <span class="logoname">DIDACOMMUNICATIONLAB</span>
+    </div>
+
+    <div class="hamburger hamburger--elastic">
+      <div class="hamburger-box">
+        <div class="hamburger-inner"></div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="container-header-colonne">
+    <div class="header-colonna header-colonna1">
+      PROJECTS UPDATES
+    </div>
+    <div class="header-colonna header-colonna2">
+      CORSI / WORKSHOP
+    </div>
+    <div class="header-colonna header-colonna3">
+      PUBBLICAZIONI
+    </div>
+    <div class="header-colonna header-colonna4">
+      EXHIBITION / TALKS
+    </div>
+
+  </div>
+
+
+  <div class="container-colonne">
+
+    <div class="colonna colonna1">
+      <placeholder v-for="article in project_updates" :article="article"></placeholder>
+    </div>
+    <div class="colonna colonna2">
+      <placeholder v-for="article in corsi_workshop" :article="article"></placeholder>
+    </div>
+    <div class="colonna colonna3">
+      <placeholder v-for="article in pubblicazioni" :article="article"></placeholder>
+    </div>
+    <div class="colonna colonna4">
+      <placeholder v-for="article in exhibition_talks" :article="article"></placeholder>
+    </div>
+
+  </div>
+
+  <script type="text/x-template" id="placeholder-template">
+    <div class="article">
+      <div class="date">
+        21-07-2019
+      </div>
+      <div class="article-img">
+      <img :src="article.image"/>
+    </div>
+      <div class="title">
+        {{ article.title }}
+      </div>
+      <div class="excerpt">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor fringilla velit, eu blandit justo semper eget. Nulla arcu augue, vehicula nec mi sed, aliquet facilisis velit. Nullam id elit lacinia, congue nisl luctus, finibus risus. Vestibulum tincidunt mauris in sem molestie ullamcorper. Donec mattis erat ut ullamcorper rutrum. Aliquam eu ullamcorper nunc. Aliquam erat volutpat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus et luctus enim, feugiat lacinia nisl. Aliquam cursus, quam in hendrerit accumsan, dolor dolor rutrum diam, eget congue nisi neque eget elit. Vivamus quis eros tristique, scelerisque lorem non, tristique ligula. Nam laoreet eros sit amet enim ultricies sodales. Etiam sit amet ante vitae lacus rutrum rutrum nec sit amet nibh. Mauris molestie felis nec tellus faucibus hendrerit. Nam ullamcorper, libero eget vestibulum varius, est ipsum vulputate justo, lobortis tristique enim quam eget erat.
+      </div>
+
+    </div>
+  </script>
+
+  <div class="content">
+    d
+  </div>
+
+
+
+  <script type="text/javascript">
+    document.querySelector('.hamburger').addEventListener("click", function() {
+      this.classList.toggle("is-active");
+    }, false);
+  </script>
+
+
+  <script type="text/javascript">
+    Vue.component('placeholder', {
+      props: ['article'],
+      data: function() {
+        return {}
+      },
+      template: '#placeholder-template',
+    })
+
+    new Vue({
+      el: '.container-colonne',
+      data: {
+        project_updates: [{
+            title: "Inizio lavori San Marco",
+            image: 'https://picsum.photos/200/300'
+          },
+          {
+            title: "Nuova identità del Sistema Museale di Ateneo",
+            image: 'https://picsum.photos/200/150'
+          },
+          {
+            title: "Stradesign",
+            image: 'https://picsum.photos/200/250'
+          },
+          {
+            title: "Inizio montaggio Palazzo Fenzi",
+            image: 'https://picsum.photos/200/157'
+          },
+          {
+            title: "Call Immatricolazioni",
+            image: 'https://picsum.photos/200/257'
+          }
+        ],
+        corsi_workshop: [{
+            title: "Inizio lavori San Marco",
+            image: 'https://picsum.photos/200/120'
+          },
+          {
+            title: "Nuova identità del Sistema Museale di Ateneo",
+            image: 'https://picsum.photos/200/200'
+          },
+          {
+            title: "Stradesign",
+            image: 'https://picsum.photos/200/135'
+          },
+          {
+            title: "Inizio montaggio Palazzo Fenzi",
+            image: 'https://picsum.photos/200/180'
+          },
+          {
+            title: "Call Immatricolazioni",
+            image: 'https://picsum.photos/200/302'
+          }
+        ],
+        pubblicazioni: [{
+            title: "Inizio lavori San Marco",
+            image: 'https://picsum.photos/200/140'
+          },
+          {
+            title: "Nuova identità del Sistema Museale di Ateneo",
+            image: 'https://picsum.photos/200/210'
+          },
+          {
+            title: "Stradesign",
+            image: 'https://picsum.photos/200/130'
+          },
+          {
+            title: "Inizio montaggio Palazzo Fenzi",
+            image: 'https://picsum.photos/200/206'
+          }
+        ],
+        exhibition_talks: [{
+            title: "Inizio lavori San Marco",
+            image: 'https://picsum.photos/200/145'
+          },
+          {
+            title: "Nuova identità del Sistema Museale di Ateneo",
+            image: 'https://picsum.photos/200/222'
+          },
+          {
+            title: "Stradesign",
+            image: 'https://picsum.photos/200/312'
+          },
+          {
+            title: "Inizio montaggio Palazzo Fenzi",
+            image: 'https://picsum.photos/200/130'
+          },
+          {
+            title: "Call Immatricolazioni",
+            image: 'https://picsum.photos/200/65'
+          }
+        ]
+      }
+    })
+
+    /* random text generator
+    https://loripsum.net/api/1/plaintext
+    */
+  </script>
+
+
+</body>
+
+</html>
