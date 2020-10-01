@@ -15,6 +15,8 @@
 
 
   <style media="screen">
+    /* RESET E GENERALI */
+
     html,
     body,
     div {
@@ -32,32 +34,61 @@
       overflow: hidden;
     }
 
+    html {
+      font-size: 1.2vw;
+    }
+
+    @media screen and (min-width: 1025px) {
+      html {
+        font-size: max(0.8vw, 14px);
+      }
+    }
+
+    /* ALTEZZE LAYOUT */
+
+    html {
+      --header-height: 7.8rem;
+      --colonne-header-height: 2.7rem;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
     .header {
-      height: 13vh;
-      padding: 20px 20px;
+      height: var(--header-height);
+    }
+
+    .main {
+      height: calc(100% - var(--header-height));
     }
 
     .header-colonna {
-      height: 4.25vh;
+      height: var(--colonne-header-height);
+    }
+
+    .container-colonne {
+      height: calc(100% - var(--colonne-header-height));
     }
 
     .colonna {
-      height: 82.75vh;
+      height: 100%;
     }
+
+
+
+
+    /* STILI HEADER */
 
     .header {
       display: flex;
       justify-content: space-between;
+      padding: 1em 2em;
     }
 
     .logo {
       font-size: 2.1em;
-      margin-top: 0.2em;
-    }
-
-    .menu {
-      color: #ccc;
-      font-size: 1.9em;
       margin-top: 0.2em;
     }
 
@@ -70,6 +101,37 @@
     .logoname {
       margin-left: 0.5em;
     }
+
+    .menu {
+      display: none;
+      color: #ccc;
+      font-size: 1.9em;
+      margin-top: 0.2em;
+    }
+
+    .hamburger {
+      font-size: 0.07em;
+    }
+
+    .hamburger-inner, .hamburger-inner:after, .hamburger-inner:before {
+      height: 2em;
+      border-radius: 0;
+    }
+
+    @media screen and (min-width: 1281px) {
+      .hamburger {
+        display: none;
+      }
+      .menu {
+        display: block;
+      }
+    }
+
+
+
+
+
+
 
     .container-header-colonne {
       display: flex;
@@ -104,8 +166,8 @@
     }
 
     .article {
-      padding-top: 30px;
-      padding-bottom: 60px;
+      padding-top: 2em;
+      padding-bottom: 4em;
       border-bottom: 3px solid black;
     }
 
@@ -145,61 +207,65 @@
 
     <div class="menu">
       <span style="color: black;"> NEWS </span>
-      <span style="margin: 0 10px">/</span>
+      <span style="margin: 0 0.6em">/</span>
       <span>PROJECTS</span>
-      <span style="margin: 0 10px">/</span>
+      <span style="margin: 0 0.6em">/</span>
       <span>ARCHIVE</span>
-      <span style="margin: 0 10px">/</span>
+      <span style="margin: 0 0.6em">/</span>
       <span>ABOUT</span>
-      <span style="margin: 0 10px">/</span>
-      <span class="material-icons">facebook</span>
-      <span style="margin: 0 10px">/</span>
-      <span class="material-icons">facebook</span>
+      <span style="margin: 0 0.6em">/</span>
+      <span>O</span>
+      <span style="margin: 0 0.6em">/</span>
+      <span>O</span>
     </div>
-    <!--
+
     <div class="hamburger hamburger--elastic">
       <div class="hamburger-box">
         <div class="hamburger-inner"></div>
       </div>
     </div>
-  -->
 
-  </div>
+  </div> <!-- header -->
+
+  <div class="main">
+
+    <div class="container-header-colonne">
+      <div class="header-colonna header-colonna1">
+        PROJECTS UPDATES
+      </div>
+      <div class="header-colonna header-colonna2">
+        CORSI / WORKSHOP
+      </div>
+      <div class="header-colonna header-colonna3">
+        PUBBLICAZIONI
+      </div>
+      <div class="header-colonna header-colonna4">
+        MOSTRE / TALKS
+      </div>
+
+    </div> <!-- container-header-colonne -->
 
 
-  <div class="container-header-colonne">
-    <div class="header-colonna header-colonna1">
-      PROJECTS UPDATES
-    </div>
-    <div class="header-colonna header-colonna2">
-      CORSI / WORKSHOP
-    </div>
-    <div class="header-colonna header-colonna3">
-      PUBBLICAZIONI
-    </div>
-    <div class="header-colonna header-colonna4">
-      EXHIBITION / TALKS
-    </div>
+    <div class="container-colonne">
 
-  </div>
+      <div class="colonna colonna1">
+        <placeholder v-for="article in project_updates" :article="article"></placeholder>
+      </div>
+      <div class="colonna colonna2">
+        <placeholder v-for="article in corsi_workshop" :article="article"></placeholder>
+      </div>
+      <div class="colonna colonna3">
+        <placeholder v-for="article in pubblicazioni" :article="article"></placeholder>
+      </div>
+      <div class="colonna colonna4">
+        <placeholder v-for="article in exhibition_talks" :article="article"></placeholder>
+      </div>
+
+    </div> <!-- container-colonne -->
+
+  </div> <!-- main -->
 
 
-  <div class="container-colonne">
-
-    <div class="colonna colonna1">
-      <placeholder v-for="article in project_updates" :article="article"></placeholder>
-    </div>
-    <div class="colonna colonna2">
-      <placeholder v-for="article in corsi_workshop" :article="article"></placeholder>
-    </div>
-    <div class="colonna colonna3">
-      <placeholder v-for="article in pubblicazioni" :article="article"></placeholder>
-    </div>
-    <div class="colonna colonna4">
-      <placeholder v-for="article in exhibition_talks" :article="article"></placeholder>
-    </div>
-
-  </div>
 
   <script type="text/x-template" id="placeholder-template">
     <div class="article">
@@ -219,9 +285,6 @@
     </div>
   </script>
 
-  <div class="content">
-    d
-  </div>
 
 
 
