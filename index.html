@@ -3,6 +3,8 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>DIDACOMMUNICATIONLAB</title>
 </head>
 <link rel="stylesheet" href="/css/hamburgers.css">
@@ -30,17 +32,29 @@
       font-weight: 400;
     }
 
-    html {
+    html, body {
       overflow: hidden;
     }
 
     html {
-      font-size: 1.2vw;
+      font-size: 2vw;
+    }
+
+    @media screen and (min-width: 768px) {
+      html {
+        font-size: 1.2vw;
+      }
     }
 
     @media screen and (min-width: 1025px) {
       html {
-        font-size: max(0.8vw, 14px);
+        font-size: 16px;
+      }
+    }
+
+    @media screen and (min-width: 1921px) {
+      html {
+        font-size: 0.85vw;
       }
     }
 
@@ -79,6 +93,8 @@
 
 
 
+
+
     /* STILI HEADER */
 
     .header {
@@ -88,7 +104,7 @@
     }
 
     .logo {
-      font-size: 2.1em;
+      font-size:1.9em;
       margin-top: 0.2em;
     }
 
@@ -105,7 +121,7 @@
     .menu {
       display: none;
       color: #ccc;
-      font-size: 1.9em;
+      font-size: 1.6em;
       margin-top: 0.2em;
     }
 
@@ -113,7 +129,9 @@
       font-size: 0.07em;
     }
 
-    .hamburger-inner, .hamburger-inner:after, .hamburger-inner:before {
+    .hamburger-inner,
+    .hamburger-inner:after,
+    .hamburger-inner:before {
       height: 2em;
       border-radius: 0;
     }
@@ -129,9 +147,15 @@
 
 
 
+    .main {
+      width: 400vw;
+    }
 
-
-
+    @media screen and (min-width: 768px) {
+      .main {
+        width: 100%;
+      }
+    }
 
     .container-header-colonne {
       display: flex;
@@ -143,6 +167,7 @@
       width: 100%;
       font-size: 1.5em;
       padding-top: 0.3em;
+      text-align: center;
     }
 
     .container-colonne {
@@ -164,6 +189,19 @@
     .colonna3 {
       background-color: #eee;
     }
+
+    @media screen and (min-width: 768px) {
+      .header-colonna {
+        text-align: left;
+      }
+    }
+
+
+
+
+
+
+
 
     .article {
       padding-top: 2em;
