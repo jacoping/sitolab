@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .container-colonne {
+        display: flex;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .colonna {
+        min-width: 100vw;
+        height: 100vh;
+        scroll-snap-align: start;
+        overflow-y: scroll;
+      }
+
+      .colonna:nth-child(1) {background-color: lightgreen;}
+      .colonna:nth-child(2) {background-color: orange;}
+      .colonna:nth-child(3) {background-color: yellow;}
+      .colonna:nth-child(4) {background-color: red;}
+
+      .content {
+        font-size: 70vw;
+      }
+
+    </style>
+    <div class="container-colonne">
+      <div class="colonna">
+        <div class="content">a b c d e f g h i j k l m n o p q r s t u v w x y z</div>
+      </div>
+      <div class="colonna">
+        <div class="content">a b c d e f g h i j k l m n o p q r s t u v w x y z</div>
+      </div>
+      <div class="colonna">
+        <div class="content">a b c d e f g h i j k l m n o p q r s t u v w x y z</div>
+      </div>
+      <div class="colonna">
+        <div class="content">a b c d e f g h i j k l m n o p q r s t u v w x y z</div>
+      </div>
+    </div>
+
+
+
+  </body>
+</html>

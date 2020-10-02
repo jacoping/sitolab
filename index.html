@@ -17,77 +17,67 @@
 
 
   <style media="screen">
-    /* RESET E GENERALI */
+    /* VARIABILI E MEDIA QUERIES */
 
-    html,
-    body,
-    div {
+    :root {
+      --ROOT_FONT_SIZE: 4vw;
+      --HEADER_FONT_SIZE: 2.7vw;
+      --HEADER_HEIGHT: 24vw;
+      --HEADER_SIDE_PADDING: 5vw;
+
+      --COLUMNS_MIN_WIDTH: 100vw;
+      --COLUMNS_HEADING_HEIGHT: 8vw;
+      --COLUMNS_HEADING_FONT_SIZE: 5vw;
+      --COLUMNS_SIDE_PADDING: 8vw;
+    }
+
+    @media screen and (min-width: 500px) {
+      :root {
+        --ROOT_FONT_SIZE: 1.2vw;
+        --HEADER_FONT_SIZE: 1rem;
+        --HEADER_HEIGHT: 7.8rem;
+        --HEADER_SIDE_PADDING: 2em;
+
+        --COLUMNS_MIN_WIDTH: 0;
+        --COLUMNS_HEADING_HEIGHT: 2.7rem;
+        --COLUMNS_HEADING_FONT_SIZE: 1.5em;
+        --COLUMNS_SIDE_PADDING: 10%;
+      }
+    }
+
+    @media screen and (min-width: 1025px) {
+      :root {
+        --ROOT_FONT_SIZE: 16px;
+      }
+    }
+
+    @media screen and (min-width: 1921px) {
+      :root {
+        --ROOT_FONT_SIZE: 0.85vw;
+      }
+    }
+
+
+
+    /* RESET */
+
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
+
+
+    /* GENERALI */
 
     html {
       font-family: neue-haas-grotesk-display, sans-serif;
       font-weight: 400;
     }
 
-    html, body {
-      overflow: hidden;
-    }
-
     html {
-      font-size: 2vw;
-    }
-
-    @media screen and (min-width: 768px) {
-      html {
-        font-size: 1.2vw;
-      }
-    }
-
-    @media screen and (min-width: 1025px) {
-      html {
-        font-size: 16px;
-      }
-    }
-
-    @media screen and (min-width: 1921px) {
-      html {
-        font-size: 0.85vw;
-      }
-    }
-
-    /* ALTEZZE LAYOUT */
-
-    html {
-      --header-height: 7.8rem;
-      --colonne-header-height: 2.7rem;
-    }
-
-    html,
-    body {
-      height: 100%;
-    }
-
-    .header {
-      height: var(--header-height);
-    }
-
-    .main {
-      height: calc(100% - var(--header-height));
-    }
-
-    .header-colonna {
-      height: var(--colonne-header-height);
-    }
-
-    .container-colonne {
-      height: calc(100% - var(--colonne-header-height));
-    }
-
-    .colonna {
-      height: 100%;
+      font-size: var(--ROOT_FONT_SIZE);
     }
 
 
@@ -95,27 +85,28 @@
 
 
 
-    /* STILI HEADER */
 
     .header {
       display: flex;
       justify-content: space-between;
-      padding: 1em 2em;
+      height: var(--HEADER_HEIGHT);
+      font-size: var(--HEADER_FONT_SIZE);
+      padding-top: 1em;
+      padding-left: var(--HEADER_SIDE_PADDING);
+      padding-right: var(--HEADER_SIDE_PADDING);
     }
 
     .logo {
-      font-size:1.9em;
+      font-size: 1.9em;
       margin-top: 0.2em;
+      max-width: 80vw;
     }
 
     .puntini {
       font-size: 4em;
       line-height: .1;
       vertical-align: -250%;
-    }
-
-    .logoname {
-      margin-left: 0.5em;
+      margin-right: 0.1em;
     }
 
     .menu {
@@ -140,6 +131,7 @@
       .hamburger {
         display: none;
       }
+
       .menu {
         display: block;
       }
@@ -147,53 +139,53 @@
 
 
 
+
+
+
+
+
     .main {
-      width: 400vw;
-    }
+      font-size: var(--MAIN_FONT_RATIO);
 
-    @media screen and (min-width: 768px) {
-      .main {
-        width: 100%;
-      }
-    }
-
-    .container-header-colonne {
+      height: calc(100vh - var(--HEADER_HEIGHT));
       display: flex;
-      background-color: black;
-      color: white;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .colonna {
+      height: calc(100vh - var(--HEADER_HEIGHT));
+      min-width: var(--COLUMNS_MIN_WIDTH);
+      scroll-snap-align: start;
     }
 
     .header-colonna {
+      background-color: black;
+      color: white;
       width: 100%;
-      font-size: 1.5em;
-      padding-top: 0.3em;
-      text-align: center;
+      min-height: var(--COLUMNS_HEADING_HEIGHT);
+      max-height: var(--COLUMNS_HEADING_HEIGHT);
+      line-height: var(--COLUMNS_HEADING_HEIGHT);
+      font-size: var(--COLUMNS_HEADING_FONT_SIZE);
     }
 
-    .container-colonne {
-      display: flex;
+    .wrapper-colonna {
+      height: calc(100vh - (var(--HEADER_HEIGHT) + var(--COLUMNS_HEADING_HEIGHT)));
+      overflow-y: scroll;
     }
 
     .header-colonna,
-    .colonna {
-      padding-left: 3%;
-      padding-right: 3%;
+    .wrapper-colonna {
+      padding-left: var(--COLUMNS_SIDE_PADDING);
+      padding-right: var(--COLUMNS_SIDE_PADDING);
     }
 
-    .colonna {
-      width: 100%;
-      overflow: scroll;
-    }
+
 
     .colonna1,
     .colonna3 {
       background-color: #eee;
-    }
-
-    @media screen and (min-width: 768px) {
-      .header-colonna {
-        text-align: left;
-      }
     }
 
 
@@ -265,8 +257,8 @@
 
   </div> <!-- header -->
 
-  <div class="main">
 
+  <!--
     <div class="container-header-colonne">
       <div class="header-colonna header-colonna1">
         PROJECTS UPDATES
@@ -284,24 +276,47 @@
     </div> <!-- container-header-colonne -->
 
 
-    <div class="container-colonne">
+  <div class="main">
 
-      <div class="colonna colonna1">
+    <div class="colonna colonna1">
+      <div class="header-colonna">
+        PROJECTS UPDATES
+      </div>
+      <div class="wrapper-colonna">
         <placeholder v-for="article in project_updates" :article="article"></placeholder>
       </div>
-      <div class="colonna colonna2">
+    </div>
+
+    <div class="colonna colonna2">
+      <div class="header-colonna">
+        CORSI / WORKSHOP
+      </div>
+      <div class="wrapper-colonna">
         <placeholder v-for="article in corsi_workshop" :article="article"></placeholder>
       </div>
-      <div class="colonna colonna3">
+    </div>
+
+    <div class="colonna colonna3">
+      <div class="header-colonna">
+        PUBBLICAZIONI
+      </div>
+      <div class="wrapper-colonna">
         <placeholder v-for="article in pubblicazioni" :article="article"></placeholder>
       </div>
-      <div class="colonna colonna4">
+    </div>
+
+    <div class="colonna colonna4">
+      <div class="header-colonna">
+        MOSTRE / TALKS
+      </div>
+      <div class="wrapper-colonna">
         <placeholder v-for="article in exhibition_talks" :article="article"></placeholder>
       </div>
-
-    </div> <!-- container-colonne -->
+    </div>
 
   </div> <!-- main -->
+
+
 
 
 
@@ -343,7 +358,7 @@
     })
 
     new Vue({
-      el: '.container-colonne',
+      el: '.main',
       data: {
         project_updates: [{
             title: "Inizio lavori San Marco",
