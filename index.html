@@ -29,6 +29,7 @@
       --COLUMNS_HEADING_HEIGHT: 8vw;
       --COLUMNS_HEADING_FONT_SIZE: 5vw;
       --COLUMNS_SIDE_PADDING: 8vw;
+      --COLUMNS_HEADING_DISPLAY: flex;
     }
 
     @media screen and (min-width: 500px) {
@@ -41,7 +42,9 @@
         --COLUMNS_MIN_WIDTH: 0;
         --COLUMNS_HEADING_HEIGHT: 2.7rem;
         --COLUMNS_HEADING_FONT_SIZE: 1.5em;
+        --COLUMNS_HEADING_DISPLAY: block;
         --COLUMNS_SIDE_PADDING: 10%;
+        --HEADER_COLONNA_ARROWS_DISPLAY: none;
       }
     }
 
@@ -168,6 +171,13 @@
       max-height: var(--COLUMNS_HEADING_HEIGHT);
       line-height: var(--COLUMNS_HEADING_HEIGHT);
       font-size: var(--COLUMNS_HEADING_FONT_SIZE);
+      display: var(--COLUMNS_HEADING_DISPLAY);
+      justify-content: space-between;
+    }
+
+    .header-colonna-arrows {
+      display: var(--HEADER_COLONNA_ARROWS_DISPLAY);
+      padding: 0 10px;
     }
 
     .wrapper-colonna {
@@ -280,7 +290,8 @@
 
     <div class="colonna colonna1">
       <div class="header-colonna">
-        PROJECTS UPDATES
+        PROJECT UPDATES
+        <span class="header-colonna-arrows" onclick="scroll_columns('next')">&gt</span>
       </div>
       <div class="wrapper-colonna">
         <placeholder v-for="article in project_updates" :article="article"></placeholder>
@@ -289,7 +300,9 @@
 
     <div class="colonna colonna2">
       <div class="header-colonna">
+        <span class="header-colonna-arrows" onclick="scroll_columns('prev')">&lt</span>
         CORSI / WORKSHOP
+        <span class="header-colonna-arrows" onclick="scroll_columns('next')">&gt</span>
       </div>
       <div class="wrapper-colonna">
         <placeholder v-for="article in corsi_workshop" :article="article"></placeholder>
@@ -298,7 +311,9 @@
 
     <div class="colonna colonna3">
       <div class="header-colonna">
+        <span class="header-colonna-arrows" onclick="scroll_columns('prev')">&lt</span>
         PUBBLICAZIONI
+        <span class="header-colonna-arrows" onclick="scroll_columns('next')">&gt</span>
       </div>
       <div class="wrapper-colonna">
         <placeholder v-for="article in pubblicazioni" :article="article"></placeholder>
@@ -307,6 +322,7 @@
 
     <div class="colonna colonna4">
       <div class="header-colonna">
+        <span class="header-colonna-arrows" onclick="scroll_columns('prev')">&lt</span>
         MOSTRE / TALKS
       </div>
       <div class="wrapper-colonna">
@@ -345,6 +361,23 @@
     document.querySelector('.hamburger').addEventListener("click", function() {
       this.classList.toggle("is-active");
     }, false);
+
+
+    // SCROLL COLONNE HOME CON FRECCETTE
+
+
+    var scroll_columns = function(direction) {
+      let main = document.querySelector('.main');
+      const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+      let scroll = main.scrollLeft;
+      let newscroll;
+      if (direction == "next") {
+         newscroll = main.scrollLeft + vw;
+      } else if (direction == "prev") {
+         newscroll = main.scrollLeft - vw;
+      }
+      document.querySelector('.main').scroll(newscroll, 0);
+    }
   </script>
 
 
