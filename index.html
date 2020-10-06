@@ -11,6 +11,9 @@
 <link rel="stylesheet" href="https://use.typekit.net/lrj7kma.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+<script type="text/javascript" src="./js/vue.js"> </script>
+<script type="text/javascript" src="./js/data-feed.js"></script>
+
 <body>
 
   <div style="display: none">
@@ -21,7 +24,6 @@
     </svg>
   </div>
 
-  <script type="text/javascript" src="./js/vue.js"> </script>
 
 
   <style media="screen">
@@ -47,7 +49,7 @@
         --HEADER_HEIGHT: 7.8rem;
         --HEADER_SIDE_PADDING: 2.5vw;
 
-        --COLUMNS_MIN_WIDTH: 0;
+        --COLUMNS_MIN_WIDTH: 25vw;
         --COLUMNS_HEADING_HEIGHT: 2.7rem;
         --COLUMNS_HEADING_FONT_SIZE: 1.5em;
         --COLUMNS_HEADING_DISPLAY: block;
@@ -237,17 +239,14 @@
 
 
     .article {
+      font-size: 18px;
       padding-top: 2em;
       padding-bottom: 4em;
       border-bottom: 3px solid black;
     }
 
-    .excerpt {
-      font-size: 1em;
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
+    .nome_progetto {
+      font-weight: 600;
     }
 
     .article-img img {
@@ -255,17 +254,52 @@
       height: auto;
     }
 
+    .post_date {
+      color: #777;
+    }
+
+    .event_date {
+      background-color: black;
+      color: white;
+      padding: 2px 5px;
+      display: inline-block;
+      font-weight: 500;
+      font-size: 20px;
+    }
+
     .title {
-      font-size: 2.2em;
+      font-size: 35px;
       line-height: 0.9;
       font-weight: 500;
     }
 
-    .article-img,
-    .title,
+    .subtitle {
+      font-weight: 500;
+    }
+
     .excerpt {
+      font-size: 20px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
+    .article-img,
+    .excerpt,
+    .post_date,
+    .subtitle {
       margin-top: 1em;
     }
+    .event_date {
+      margin-top: 0.8em;
+    }
+
+    .title {
+      margin-top: 0.2em;
+    }
+
+
   </style>
 
   <div class="header">
@@ -322,7 +356,7 @@
         <span class="header-colonna-arrows" onclick="scroll_columns('next')">&gt</span>
       </div>
       <div class="wrapper-colonna">
-        <placeholder v-for="article in project_updates" :article="article"></placeholder>
+        <project-updates-feed v-for="article in project_updates" :article="article"></project-updates-feed>
       </div>
     </div>
 
@@ -333,7 +367,7 @@
         <span class="header-colonna-arrows" onclick="scroll_columns('next')">&gt</span>
       </div>
       <div class="wrapper-colonna">
-        <placeholder v-for="article in corsi_workshop" :article="article"></placeholder>
+        <corsi-workshop-feed v-for="article in corsi_workshop" :article="article"></corsi-workshop-feed>
       </div>
     </div>
 
@@ -344,7 +378,7 @@
         <span class="header-colonna-arrows" onclick="scroll_columns('next')">&gt</span>
       </div>
       <div class="wrapper-colonna">
-        <placeholder v-for="article in pubblicazioni" :article="article"></placeholder>
+        <pubblicazioni-feed v-for="article in pubblicazioni" :article="article"></pubblicazioni-feed>
       </div>
     </div>
 
@@ -354,7 +388,7 @@
         MOSTRE / TALKS
       </div>
       <div class="wrapper-colonna">
-        <placeholder v-for="article in exhibition_talks" :article="article"></placeholder>
+        <exhibition-talks-feed v-for="article in exhibition_talks" :article="article"></exhibition-talks-feed>
       </div>
     </div>
 
@@ -363,6 +397,79 @@
 
 
 
+
+
+
+
+  <script type="text/javascript">
+
+    //
+
+    document.querySelector('.hamburger').addEventListener("click", function() {
+      this.classList.toggle("is-active");
+    }, false);
+
+
+    // SCROLL COLONNE HOME CON FRECCETTE
+
+    var scroll_columns = function(direction) {
+      let main = document.querySelector('.main');
+      const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+      let scroll = main.scrollLeft;
+      let newscroll;
+      if (direction == "next") {
+        newscroll = main.scrollLeft + vw;
+      } else if (direction == "prev") {
+        newscroll = main.scrollLeft - vw;
+      }
+      document.querySelector('.main').scroll(newscroll, 0);
+    }
+  </script>
+
+
+
+
+  <!-- DA QUI IN POI VUE -->
+
+  <script type="text/x-template" id="project-updates-template">
+    <div class="article">
+      <div class="nome_progetto">{{ article.nome_progetto }}</div>
+      <div class="article-img"><img :src="article.image"/></div>
+      <div class="post_date">{{ article.data_post }}</div>
+      <div class="title">{{ article.titolo }}</div>
+      <div class="excerpt">{{ article.testo }}</div>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="corsi-workshop-template">
+    <div class="article">
+      <div class="post_date">{{ article.data_post }}</div>
+      <div class="article-img"><img :src="article.image"/></div>
+      <div class="event_date">{{ article.data_corso }}</div>
+      <div class="title">{{ article.titolo }}</div>
+      <div class="subtitle">{{ article.sottotitolo }}</div>
+      <div class="excerpt">{{ article.testo }}</div>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="pubblicazioni-template">
+    <div class="article">
+      <div class="title">{{ article.titolo }}</div>
+      <div class="article-img"><img :src="article.image"/></div>
+      <div class="subtitle">{{ article.sottotitolo }}</div>
+      <div class="description">{{ article.testo }}</div>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="exhibition-talks-template">
+    <div class="article">
+      <div class="post_date">{{ article.data_post }}</div>
+      <div class="title">{{ article.titolo }}</div>
+      <div class="article-img"><img :src="article.image"/></div>
+      <div class="subtitle">{{ article.sottotitolo }}</div>
+      <div class="description">{{ article.testo }}</div>
+    </div>
+  </script>
 
   <script type="text/x-template" id="placeholder-template">
     <div class="article">
@@ -378,35 +485,10 @@
       <div class="excerpt">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor fringilla velit, eu blandit justo semper eget. Nulla arcu augue, vehicula nec mi sed, aliquet facilisis velit. Nullam id elit lacinia, congue nisl luctus, finibus risus. Vestibulum tincidunt mauris in sem molestie ullamcorper. Donec mattis erat ut ullamcorper rutrum. Aliquam eu ullamcorper nunc. Aliquam erat volutpat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus et luctus enim, feugiat lacinia nisl. Aliquam cursus, quam in hendrerit accumsan, dolor dolor rutrum diam, eget congue nisi neque eget elit. Vivamus quis eros tristique, scelerisque lorem non, tristique ligula. Nam laoreet eros sit amet enim ultricies sodales. Etiam sit amet ante vitae lacus rutrum rutrum nec sit amet nibh. Mauris molestie felis nec tellus faucibus hendrerit. Nam ullamcorper, libero eget vestibulum varius, est ipsum vulputate justo, lobortis tristique enim quam eget erat.
       </div>
-
     </div>
   </script>
 
 
-
-
-  <script type="text/javascript">
-    document.querySelector('.hamburger').addEventListener("click", function() {
-      this.classList.toggle("is-active");
-    }, false);
-
-
-    // SCROLL COLONNE HOME CON FRECCETTE
-
-
-    var scroll_columns = function(direction) {
-      let main = document.querySelector('.main');
-      const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-      let scroll = main.scrollLeft;
-      let newscroll;
-      if (direction == "next") {
-         newscroll = main.scrollLeft + vw;
-      } else if (direction == "prev") {
-         newscroll = main.scrollLeft - vw;
-      }
-      document.querySelector('.main').scroll(newscroll, 0);
-    }
-  </script>
 
 
   <script type="text/javascript">
@@ -418,95 +500,52 @@
       template: '#placeholder-template',
     })
 
+    Vue.component('project-updates-feed', {
+      props: ['article'],
+      data: function() {
+        return {}
+      },
+      template: '#project-updates-template',
+    })
+
+    Vue.component('corsi-workshop-feed', {
+      props: ['article'],
+      data: function() {
+        return {}
+      },
+      template: '#corsi-workshop-template',
+    })
+
+    Vue.component('pubblicazioni-feed', {
+      props: ['article'],
+      data: function() {
+        return {}
+      },
+      template: '#pubblicazioni-template',
+    })
+
+    Vue.component('exhibition-talks-feed', {
+      props: ['article'],
+      data: function() {
+        return {}
+      },
+      template: '#exhibition-talks-template',
+    })
+
     new Vue({
       el: '.main',
-      data: {
-        project_updates: [{
-            title: "Inizio lavori San Marco",
-            image: 'https://picsum.photos/200/300'
-          },
-          {
-            title: "Nuova identità del Sistema Museale di Ateneo",
-            image: 'https://picsum.photos/200/150'
-          },
-          {
-            title: "Stradesign",
-            image: 'https://picsum.photos/200/250'
-          },
-          {
-            title: "Inizio montaggio Palazzo Fenzi",
-            image: 'https://picsum.photos/200/157'
-          },
-          {
-            title: "Call Immatricolazioni",
-            image: 'https://picsum.photos/200/257'
-          }
-        ],
-        corsi_workshop: [{
-            title: "Inizio lavori San Marco",
-            image: 'https://picsum.photos/200/120'
-          },
-          {
-            title: "Nuova identità del Sistema Museale di Ateneo",
-            image: 'https://picsum.photos/200/200'
-          },
-          {
-            title: "Stradesign",
-            image: 'https://picsum.photos/200/135'
-          },
-          {
-            title: "Inizio montaggio Palazzo Fenzi",
-            image: 'https://picsum.photos/200/180'
-          },
-          {
-            title: "Call Immatricolazioni",
-            image: 'https://picsum.photos/200/302'
-          }
-        ],
-        pubblicazioni: [{
-            title: "Inizio lavori San Marco",
-            image: 'https://picsum.photos/200/140'
-          },
-          {
-            title: "Nuova identità del Sistema Museale di Ateneo",
-            image: 'https://picsum.photos/200/210'
-          },
-          {
-            title: "Stradesign",
-            image: 'https://picsum.photos/200/130'
-          },
-          {
-            title: "Inizio montaggio Palazzo Fenzi",
-            image: 'https://picsum.photos/200/206'
-          }
-        ],
-        exhibition_talks: [{
-            title: "Inizio lavori San Marco",
-            image: 'https://picsum.photos/200/145'
-          },
-          {
-            title: "Nuova identità del Sistema Museale di Ateneo",
-            image: 'https://picsum.photos/200/222'
-          },
-          {
-            title: "Stradesign",
-            image: 'https://picsum.photos/200/312'
-          },
-          {
-            title: "Inizio montaggio Palazzo Fenzi",
-            image: 'https://picsum.photos/200/130'
-          },
-          {
-            title: "Call Immatricolazioni",
-            image: 'https://picsum.photos/200/65'
-          }
-        ]
-      }
+      data: data_feed
     })
 
     /* random text generator
     https://loripsum.net/api/1/plaintext
+
+    internal svg link
+    https://stackoverflow.com/questions/28213417/how-to-set-a-external-svg-color-in-html-using-css
+
     */
+
+
   </script>
 
 
