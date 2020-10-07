@@ -181,8 +181,6 @@
 
 
     .main {
-      font-size: var(--MAIN_FONT_RATIO);
-
       height: calc(100vh - var(--HEADER_HEIGHT));
       display: flex;
       overflow-x: scroll;
@@ -239,9 +237,10 @@
 
 
     .article {
-      font-size: 18px;
+      font-size: 1.1rem;
+      line-height: 1;
       padding-top: 2em;
-      padding-bottom: 4em;
+      padding-bottom: 3em;
       border-bottom: 3px solid black;
     }
 
@@ -259,6 +258,7 @@
     }
 
     .event_date {
+      font-size: 1rem;
       background-color: black;
       color: white;
       padding: 2px 5px;
@@ -268,35 +268,51 @@
     }
 
     .title {
-      font-size: 35px;
+      font-size: 2.2rem;
       line-height: 0.9;
       font-weight: 500;
     }
 
     .subtitle {
-      font-weight: 500;
+      font-size: 1rem;
+      font-weight: 600;
     }
 
     .excerpt {
-      font-size: 20px;
+      font-size: 1.25rem;
       overflow: hidden;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
     }
 
+    .description {
+      font-size: 1.25rem;
+    }
+
+    .authors p,
+    .description p {
+      margin-top: 0.2em;
+    }
+
     .article-img,
     .excerpt,
     .post_date,
-    .subtitle {
+    .authors {
       margin-top: 1em;
     }
-    .event_date {
+    .event_date,
+    .description {
       margin-top: 0.8em;
     }
 
-    .title {
+    .title,
+    .subtitle {
       margin-top: 0.2em;
+    }
+
+    .article div:nth-child(1) {
+      margin-top: 0;
     }
 
 
@@ -455,36 +471,20 @@
   <script type="text/x-template" id="pubblicazioni-template">
     <div class="article">
       <div class="title">{{ article.titolo }}</div>
-      <div class="article-img"><img :src="article.image"/></div>
       <div class="subtitle">{{ article.sottotitolo }}</div>
-      <div class="description">{{ article.testo }}</div>
+      <div class="article-img"><img :src="article.image"/></div>
+      <div class="authors" v-html="article.autori"></div>
+      <div class="description" v-html="article.descrizione"></div>
     </div>
   </script>
 
   <script type="text/x-template" id="exhibition-talks-template">
     <div class="article">
       <div class="post_date">{{ article.data_post }}</div>
-      <div class="title">{{ article.titolo }}</div>
+      <div class="description" v-html="article.descrizione"></div>
       <div class="article-img"><img :src="article.image"/></div>
+      <div class="title">{{ article.titolo }}</div>
       <div class="subtitle">{{ article.sottotitolo }}</div>
-      <div class="description">{{ article.testo }}</div>
-    </div>
-  </script>
-
-  <script type="text/x-template" id="placeholder-template">
-    <div class="article">
-      <div class="date">
-        21-07-2019
-      </div>
-      <div class="article-img">
-      <img :src="article.image"/>
-    </div>
-      <div class="title">
-        {{ article.title }}
-      </div>
-      <div class="excerpt">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tempor fringilla velit, eu blandit justo semper eget. Nulla arcu augue, vehicula nec mi sed, aliquet facilisis velit. Nullam id elit lacinia, congue nisl luctus, finibus risus. Vestibulum tincidunt mauris in sem molestie ullamcorper. Donec mattis erat ut ullamcorper rutrum. Aliquam eu ullamcorper nunc. Aliquam erat volutpat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus et luctus enim, feugiat lacinia nisl. Aliquam cursus, quam in hendrerit accumsan, dolor dolor rutrum diam, eget congue nisi neque eget elit. Vivamus quis eros tristique, scelerisque lorem non, tristique ligula. Nam laoreet eros sit amet enim ultricies sodales. Etiam sit amet ante vitae lacus rutrum rutrum nec sit amet nibh. Mauris molestie felis nec tellus faucibus hendrerit. Nam ullamcorper, libero eget vestibulum varius, est ipsum vulputate justo, lobortis tristique enim quam eget erat.
-      </div>
     </div>
   </script>
 
