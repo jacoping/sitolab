@@ -184,10 +184,11 @@
   <script type="text/x-template" id="exhibition-talks-template">
     <div class="article">
       <div class="post_date">{{ article.data_post }}</div>
+      <div class="subtitle">{{ article.sottotitolo }}</div>
+      <div class="title">{{ article.titolo }}</div>
+      <div class="event_date">{{ article.data_corso }}</div>
       <div class="description" v-html="article.descrizione"></div>
       <div class="article-img"><img :src="article.image"/></div>
-      <div class="title">{{ article.titolo }}</div>
-      <div class="subtitle">{{ article.sottotitolo }}</div>
     </div>
   </script>
 
