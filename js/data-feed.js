@@ -61,7 +61,7 @@ var data_feed = {
       data_post: "14-16/02/2020",
       titolo: "Inscription en relation",
       image: 'https://admin.lab.didacommunicationlab.it/uploads/lab/originals/2f6bf5be-f334-4b2b-9999-8f7b8a0ad82f.png',
-      descrizione: "didacommunicationlab è a Parigi con Ruedi e Vera Baur. <em>Inscription en relation:</em> un progetto internazionale e multidisciplinare con lo scopo di dare voce alle lingue assenti, e mettere in discussione l'iscrizione delle lingue nello spazio pubblico. 21 Università di tutto il mondo al Palais de la Porte Dorée di Parigi dal 14 al 16 febbraio 2020."
+      descrizione: "didacommunicationlab è a Parigi con Ruedi e Vera Baur. <em>Inscription en relation</em>: un progetto internazionale e multidisciplinare con lo scopo di dare voce alle lingue assenti, e mettere in discussione l'iscrizione delle lingue nello spazio pubblico. 21 Università di tutto il mondo al Palais de la Porte Dorée di Parigi dal 14 al 16 febbraio 2020."
     },
     {
       dada_post: "02/04/2020",

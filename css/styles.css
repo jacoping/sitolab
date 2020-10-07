@@ -59,7 +59,7 @@
 
   html {
     font-family: neue-haas-grotesk-display, sans-serif;
-    font-weight: 400;
+    font-weight: 500;
   }
 
   html {
@@ -209,7 +209,7 @@
 
   .article {
     font-size: 1.1rem;
-    line-height: 1;
+    line-height: 1.1;
     padding-top: 2em;
     padding-bottom: 3em;
     border-bottom: 3px solid black;
@@ -234,14 +234,12 @@
     color: white;
     padding: 2px 5px;
     display: inline-block;
-    font-weight: 500;
     font-size: 20px;
   }
 
   .title {
     font-size: 2.2rem;
     line-height: 0.9;
-    font-weight: 500;
   }
 
   .subtitle {
@@ -264,6 +262,18 @@
   .authors p,
   .description p {
     margin-top: 0.2em;
+  }
+
+  .excerpt,
+  .authors,
+  .description {
+    font-weight: 400;
+  }
+
+  .excerpt b,
+  .authors b,
+  .description b {
+    font-weight: 600;
   }
 
   .article-img,
