@@ -9,21 +9,59 @@
 
     <style media="screen">
 
-      p {
-        font-family: neue-haas-grotesk-display, sans-serif;
+      h1 {
+        font-size: 3em;
+        margin-top: 2em;
+      }
+
+      h2 {
         font-size: 2em;
+      }
+
+      .display {
+        font-family: neue-haas-grotesk-display, sans-serif;
+      }
+      .text {
+        font-family: neue-haas-grotesk-text, sans-serif;
+      }
+
+      p {
+        font-size: 1em;
+        width: 30%;
       }
     </style>
 
-    <p style="font-weight: 100">Lorem ipsum 100</p>
-    <p style="font-weight: 200">Lorem ipsum 200</p>
-    <p style="font-weight: 300">Lorem ipsum 300</p>
-    <p style="font-weight: 400">Lorem ipsum 400</p>
-    <p style="font-weight: 500">Lorem ipsum 500</p>
-    <p style="font-weight: 600">Lorem ipsum 600</p>
-    <p style="font-weight: 700">Lorem ipsum 700</p>
-    <p style="font-weight: 800">Lorem ipsum 800</p>
-    <p style="font-weight: 900">Lorem ipsum 900</p>
+    <script type="text/javascript">
+    var generalorem = function() {
+      document.write('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut lacinia justo, et porttitor dui. Vestibulum iaculis semper mi at porta. Morbi nec turpis metus. In hac habitasse platea dictumst. Ut eget placerat turpis, ac feugiat metus. Praesent vitae lorem varius, faucibus tellus nec, malesuada ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam mi augue, eleifend at risus at, tristique porta ex. Cras euismod tempus mi sit amet consequat. Donec rutrum non neque sit amet interdum.')
+    }
+
+    </script>
+    <h1>Neue Haas Grotesk</h1>
+
+    <h1>display</h1>
+    <h2 class="display" style="font-weight: 100">Lorem ipsum 15 (100)</h2>
+    <h2 class="display" style="font-weight: 200">Lorem ipsum 25 (200)</h2>
+    <h2 class="display" style="font-weight: 300">Lorem ipsum 35 (300)</h2>
+    <h2 class="display" style="font-weight: 400">Lorem ipsum 45 (400)</h2>
+    <h2 class="display" style="font-weight: 500">Lorem ipsum 55 (500)</h2>
+    <h2 class="display" style="font-weight: 600">Lorem ipsum 65 (600)</h2>
+    <h2 class="display" style="font-weight: 700">Lorem ipsum 75 (700)</h2>
+    <h2 class="display" style="font-weight: 800">Lorem ipsum 85 (800)</h2>
+    <h2 class="display" style="font-weight: 900">Lorem ipsum 95 (900)</h2>
+
+    <hr>
+    <h1>roman (display 500 / text 400)</h1>
+    <p class="display" style="font-weight: 500"><script>generalorem()</script></p>
+    <p class="text" style="font-weight: 400"><script>generalorem()</script></p>
+
+    <h1>medium (display 600 / text 500)</h1>
+    <p class="display" style="font-weight: 600"><script>generalorem()</script></p>
+    <p class="text" style="font-weight: 500"><script>generalorem()</script></p>
+
+    <h1>bold (display 700 / text 700)</h1>
+    <p class="display" style="font-weight: 700"><script>generalorem()</script></p>
+    <p class="text" style="font-weight: 700"><script>generalorem()</script></p>
 
 
 
