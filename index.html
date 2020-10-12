@@ -26,7 +26,7 @@
     <div class="logo">
       <span class="puntini"> <img src="./pics/puntini.svg" alt="•••"> </span>
       <span class="logoname">DIDACOMMUNICATIONLAB</span><br>
-      <span class="tagline">Dipartimento di Architettura dell'Università di Firenze</span> 
+      <span class="tagline">Dipartimento di Architettura dell'Università di Firenze</span>
     </div>
 
 
@@ -197,6 +197,7 @@
 
 
   <script type="text/javascript">
+
     Vue.component('placeholder', {
       props: ['article'],
       data: function() {
@@ -249,6 +250,19 @@
     https://stackoverflow.com/questions/28213417/how-to-set-a-external-svg-color-in-html-using-css
 
     */
+
+  var getData = function(source, target) {
+
+  }
+  
+  var oReq = new XMLHttpRequest();
+  oReq.addEventListener("load", reqListener);
+  oReq.open("GET", "https://admin.lab.didacommunicationlab.it/lab/items/project_updates?filter[status]=published&fields=titolo,progetto_collegato.nome_progetto,testo,immagine.filename_download");
+  oReq.send();
+
+  function reqListener () {
+  console.log(this.responseText);
+}
 
 
   </script>
