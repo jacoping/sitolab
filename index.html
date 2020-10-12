@@ -162,8 +162,7 @@
 
   <script type="text/x-template" id="corsi-workshop-template">
     <div class="article">
-      <div class="post_date">{{ article.data_post }}</div>
-      <div class="article-img"><img :src="article.image"/></div>
+      <div class="article-img"><img :class="{ narrow: article.immagine_stretta }" :src="article.image"/></div>
       <div class="event_date">{{ article.data_corso }}</div>
       <div class="title">{{ article.titolo }}</div>
       <div class="subtitle">{{ article.sottotitolo }}</div>
@@ -183,7 +182,6 @@
 
   <script type="text/x-template" id="exhibition-talks-template">
     <div class="article">
-      <div class="post_date">{{ article.data_post }}</div>
       <div class="subtitle">{{ article.sottotitolo }}</div>
       <div class="title">{{ article.titolo }}</div>
       <div class="event_date">{{ article.data_corso }}</div>

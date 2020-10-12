@@ -7,12 +7,13 @@ DATI GREZZI PER LE PROVE
 */
 
 var data_feed = {
-  project_updates: [{
+  project_updates: [
+    {
       nome_progetto: "Wayfinding Università di Firenze",
       data_post: "21/07/2019",
       titolo: "Inizio lavori San Marco",
       image: 'https://admin.lab.didacommunicationlab.it/uploads/lab/originals/113e8bc6-7fd8-439c-b5fa-2ed1f985a2b3.jpg',
-      testo: "Iniziano oggi le installazioni del progetto Wayfinding di Ateneo nel palazzo del Rettorato in piazza San Marco a Firenze"
+      testo: "Iniziano oggi le installazioni dei dispositivi del progetto Wayfinding di Ateneo nel palazzo sede del Rettorato in piazza San Marco a Firenze"
     },
     {
       nome_progetto: "Sistema Museale di Ateneo Firenze",
@@ -24,7 +25,8 @@ var data_feed = {
   ],
 
 
-  corsi_workshop: [{
+  corsi_workshop: [
+    {
       data_post: "01/09/2020",
       data_corso: "18-20 settembre 2020",
       titolo: "Social Design for Sustainable Cities",
@@ -37,12 +39,14 @@ var data_feed = {
       data_corso: "aprile-maggio 2020",
       sottotitolo: "Corso di Laurea Magistrale Design",
       image: 'https://admin.lab.didacommunicationlab.it/uploads/lab/originals/42169d96-9575-4386-a160-bf3c2730d72f.png',
+      immagine_stretta: true,
       testo: "Il periodo di blocco indotto dalla pandemia di Covid-19 è stato alla base di questo progetto realizzato con gli studenti al primo anno della Magistrale in Design"
     }
   ],
 
 
-  pubblicazioni: [{
+  pubblicazioni: [
+    {
       titolo: "Contenuto e forma",
       sottotitolo: "Lo sviluppo della comunicazione visiva nella relazione tra ricerca e pratica progettuale",
       autori: "<p>a cura di <b>Susanna Cerri</b></p><p> con i contributi di <b>Jacopo Ammendola, Gianluca Buoncore, Siliva Cattiodoro, Giacomo Dallatorre, Gaia Lavoratti, Vittoria Niccolini, Maddalena Rossi, Alice Trematerra</b></p>",
@@ -57,7 +61,16 @@ var data_feed = {
   ],
 
 
-  exhibition_talks: [{
+  exhibition_talks: [
+    {
+      data_post: "01/02/2020",
+      data_corso: "14-16 febbraio 2020",
+      titolo: "Inscription en relation",
+      sottotitolo: "Convegno internazionale",
+      image: 'https://admin.lab.didacommunicationlab.it/uploads/lab/originals/rb.gif',
+      descrizione: "didacommunicationlab è a Parigi con Ruedi e Vera Baur. <em>Inscription en relation</em>: un progetto internazionale e multidisciplinare con lo scopo di dare voce alle lingue assenti, e mettere in discussione l'iscrizione delle lingue nello spazio pubblico. 21 Università di tutto il mondo al Palais de la Porte Dorée di Parigi dal 14 al 16 febbraio 2020."
+    },
+    {
       data_post: "01/02/2020",
       data_corso: "14-16 febbraio 2020",
       titolo: "Inscription en relation",

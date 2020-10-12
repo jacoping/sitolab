@@ -224,6 +224,10 @@
     height: auto;
   }
 
+  .article-img img.narrow {
+    width: 60%;
+  }
+
   .post_date {
     color: #777;
   }
