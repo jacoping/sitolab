@@ -68,7 +68,7 @@ var data_feed = {
       titolo: "Strange night of design",
       sottotitolo: "24h di dialoghi",
       image: 'https://admin.lab.didacommunicationlab.it/uploads/lab/originals/rb.gif',
-      descrizione: "A program proposed by Civic City as part of <br><b>Lille Metropole 2020 World Design Capital</b><br> in partnership with the French institute and the World Design Organization.",
+      descrizione: "A program proposed by Civic City as part of <b>Lille Metropole 2020 World Design Capital</b> in partnership with the French institute and the World Design Organization.",
       descrizione2: "24 hours of dialogues on the present and future of design, a night of reflection with more than 70 speakers from all over the world. This is what Ruedi and Vera Baur from Civic City association are proposing between Saturday 10th and Sunday 11th October at the Tri Postal in Lille and broadcast on social media. In order to collectively think about the role of design in the future of our society, the program is built around a series of interviews with creators, personalities and design theorists developing a critical thinking on their activity.",
     },
     {

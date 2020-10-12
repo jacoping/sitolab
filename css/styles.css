@@ -1,10 +1,15 @@
   /* VARIABILI E MEDIA QUERIES */
 
   :root {
+    --ROMAN: 400;
+    --MEDIUM: 500;
+    --BOLD: 700;
+
     --ROOT_FONT_SIZE: 4vw;
     --HEADER_FONT_SIZE: 2.7vw;
     --HEADER_HEIGHT: 24vw;
     --HEADER_SIDE_PADDING: 5vw;
+    --TAGLINE_MARGIN_LEFT: 0;
 
     --COLUMNS_MIN_WIDTH: 100vw;
     --COLUMNS_HEADING_HEIGHT: 8vw;
@@ -17,8 +22,9 @@
     :root {
       --ROOT_FONT_SIZE: 1.2vw;
       --HEADER_FONT_SIZE: 1rem;
-      --HEADER_HEIGHT: 7.8rem;
+      --HEADER_HEIGHT: 10rem;
       --HEADER_SIDE_PADDING: 2.5vw;
+      --TAGLINE_MARGIN_LEFT: 6em;
 
       --COLUMNS_MIN_WIDTH: 25vw;
       --COLUMNS_HEADING_HEIGHT: 2.7rem;
@@ -51,6 +57,7 @@
     box-sizing: border-box;
     text-decoration: none;
     color: inherit;
+    line-height: 1.2;
   }
 
 
@@ -58,8 +65,8 @@
   /* GENERALI */
 
   html {
-    font-family: neue-haas-grotesk-display, sans-serif;
-    font-weight: 500;
+    font-family: neue-haas-grotesk-text, sans-serif;
+    font-weight: var(--ROMAN);
   }
 
   html {
@@ -89,20 +96,28 @@
     font-size: 1.9em;
     margin-top: 0.2em;
     max-width: 80vw;
+    line-height: 0.5;
   }
 
   .puntini img {
     height: 0.9em;
     vertical-align: bottom;
-    margin-bottom: 0.16em;
+    margin-bottom: 0.05em;
     margin-right: 0.4em;
+  }
+
+  .tagline {
+    font-family: neue-haas-grotesk-display, sans-serif;
+    font-weight: 300;
+    font-size: .61em;
+    margin-left: var(--TAGLINE_MARGIN_LEFT);
   }
 
   .menu {
     display: none;
     color: #ccc;
     font-size: 1.6em;
-    margin-top: 0.2em;
+    margin-top: 0.3em;
   }
 
   .hamburger {
@@ -216,7 +231,7 @@
   }
 
   .nome_progetto {
-    font-weight: 600;
+    font-weight: var(--BOLD);
   }
 
   .article-img img {
@@ -248,7 +263,7 @@
 
   .subtitle {
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: var(--BOLD);
   }
 
   .excerpt {
@@ -271,13 +286,13 @@
   .excerpt,
   .authors,
   .description {
-    font-weight: 400;
+    font-weight: var(--ROMAN);
   }
 
   .excerpt b,
   .authors b,
   .description b {
-    font-weight: 600;
+    font-weight: var(--BOLD);
   }
 
   .article-img,
