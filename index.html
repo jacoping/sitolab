@@ -108,7 +108,7 @@
         MOSTRE / TALKS
       </div>
       <div class="wrapper-colonna">
-        <exhibition-talks-feed v-for="article in exhibition_talks" :article="article"></exhibition-talks-feed>
+        <mostre-talks-feed v-for="article in mostre_talks" :article="article"></mostre-talks-feed>
       </div>
     </div>
 
@@ -122,7 +122,6 @@
 
 
   <script type="text/javascript">
-
     //
 
     document.querySelector('.hamburger').addEventListener("click", function() {
@@ -144,6 +143,14 @@
       }
       document.querySelector('.main').scroll(newscroll, 0);
     }
+
+    String.prototype.formattaData = function() {
+      var data = this.split(" ")[0];
+      var pieces = data.split("-");
+      var result = pieces[2] + "/" + pieces[1] + "/" + pieces[0]
+      return result;
+    }
+
   </script>
 
 
@@ -153,9 +160,9 @@
 
   <script type="text/x-template" id="project-updates-template">
     <div class="article">
-      <div class="nome_progetto">{{ article.nome_progetto }}</div>
-      <div class="article-img"><img :src="article.image"/></div>
-      <div class="post_date">{{ article.data_post }}</div>
+      <div class="nome_progetto">{{ article.progetto_collegato.nome_progetto }}</div>
+      <div class="article-img"><img :class="{ narrow: article.immagine_stretta }" :src="article.immagine.data.full_url"/></div>
+      <div class="post_date">{{ article.modified_on.formattaData() }}</div>
       <div class="title">{{ article.titolo }}</div>
       <div class="excerpt">{{ article.testo }}</div>
     </div>
@@ -163,7 +170,7 @@
 
   <script type="text/x-template" id="corsi-workshop-template">
     <div class="article">
-      <div class="article-img"><img :class="{ narrow: article.immagine_stretta }" :src="article.image"/></div>
+      <div class="article-img"><img :class="{ narrow: article.immagine_stretta }" :src="article.immagine.data.full_url"/></div>
       <div class="event_date">{{ article.data_corso }}</div>
       <div class="title">{{ article.titolo }}</div>
       <div class="subtitle">{{ article.sottotitolo }}</div>
@@ -175,19 +182,19 @@
     <div class="article">
       <div class="title">{{ article.titolo }}</div>
       <div class="subtitle">{{ article.sottotitolo }}</div>
-      <div class="article-img"><img :src="article.image"/></div>
+      <div class="article-img"><img :class="{ narrow: article.immagine_stretta }" :src="article.immagine.data.full_url"/></div>
       <div class="authors" v-html="article.autori"></div>
       <div class="description" v-html="article.descrizione"></div>
     </div>
   </script>
 
-  <script type="text/x-template" id="exhibition-talks-template">
+  <script type="text/x-template" id="mostre-talks-template">
     <div class="article">
-      <div class="subtitle">{{ article.sottotitolo }}</div>
+      <div class="subtitle">{{ article.tipologia }}</div>
       <div class="title">{{ article.titolo }}</div>
-      <div class="event_date">{{ article.data_corso }}</div>
-      <div class="description" v-html="article.descrizione"></div>
-      <div class="article-img"><img :src="article.image"/></div>
+      <div class="event_date">{{ article.data_evento }}</div>
+      <div class="description" v-html="article.descrizione1"></div>
+      <div class="article-img"><img :class="{ narrow: article.immagine_stretta }" :src="article.immagine.data.full_url"/></div>
       <div class="description" v-html="article.descrizione2"></div>
     </div>
   </script>
@@ -197,6 +204,13 @@
 
 
   <script type="text/javascript">
+
+    var data_feed = {
+      project_updates: {},
+      corsi_workshop: {},
+      pubblicazioni: {},
+      mostre_talks: {},
+    };
 
     Vue.component('placeholder', {
       props: ['article'],
@@ -230,12 +244,12 @@
       template: '#pubblicazioni-template',
     })
 
-    Vue.component('exhibition-talks-feed', {
+    Vue.component('mostre-talks-feed', {
       props: ['article'],
       data: function() {
         return {}
       },
-      template: '#exhibition-talks-template',
+      template: '#mostre-talks-template',
     })
 
     new Vue({
@@ -251,21 +265,48 @@
 
     */
 
-  var getData = function(source, target) {
 
-  }
-  
-  var oReq = new XMLHttpRequest();
-  oReq.addEventListener("load", reqListener);
-  oReq.open("GET", "https://admin.lab.didacommunicationlab.it/lab/items/project_updates?filter[status]=published&fields=titolo,progetto_collegato.nome_progetto,testo,immagine.filename_download");
-  oReq.send();
 
-  function reqListener () {
-  console.log(this.responseText);
-}
+    var api_urls = {
+      project_updates: "https://admin.lab.didacommunicationlab.it/lab/items/project_updates?filter[status]=published&fields=*.*.*",
+      corsi_workshop: "https://admin.lab.didacommunicationlab.it/lab/items/corsi_workshop?filter[status]=published&fields=*.*.*",
+      pubblicazioni: "https://admin.lab.didacommunicationlab.it/lab/items/pubblicazioni?filter[status]=published&fields=*.*.*",
+      mostre_talks: "https://admin.lab.didacommunicationlab.it/lab/items/mostre_talks?filter[status]=published&fields=*.*.*",
+    }
+
+
+
+    var getData = function(source, receiver) {
+      var oReq = new XMLHttpRequest();
+      oReq.addEventListener("load", receiver);
+      oReq.open("GET", source);
+      oReq.send();
+    }
+
+    getData(api_urls.project_updates, function() {
+      data_feed.project_updates = JSON.parse(this.responseText).data;;
+    });
+
+    getData(api_urls.corsi_workshop, function() {
+      data_feed.corsi_workshop = JSON.parse(this.responseText).data;;
+    });
+
+    getData(api_urls.pubblicazioni, function() {
+      data_feed.pubblicazioni = JSON.parse(this.responseText).data;;
+    });
+
+    getData(api_urls.mostre_talks, function() {
+      data_feed.mostre_talks = JSON.parse(this.responseText).data;;
+    });
+
+
+
+
 
 
   </script>
+
+
 
 
 </body>

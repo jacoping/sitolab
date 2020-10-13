@@ -200,6 +200,7 @@
   .wrapper-colonna {
     height: calc(100vh - (var(--HEADER_HEIGHT) + var(--COLUMNS_HEADING_HEIGHT)));
     overflow-y: scroll;
+    overflow-x: hidden;
   }
 
   .header-colonna,
