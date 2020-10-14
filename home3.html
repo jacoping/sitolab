@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://use.typekit.net/lrj7kma.css">
+
+  </head>
+
+  <style media="screen">
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: inherit;
+    line-height: 1.2;
+  }
+
+
+  /* GENERALI */
+
+  html {
+    font-family: neue-haas-grotesk-display, sans-serif;
+  }
+
+
+  /* STILI */
+
+  body {
+    margin: .5vw 2vw;
+
+  }
+
+h1, h2 {
+  transition-duration: 1s;
+}
+
+  h1 {
+    font-size: 6vw;
+    font-weight: 600;
+  }
+
+  svg {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .trigger {
+    width: 75vw;
+    height: 9vw;
+    -border: 1px solid red;
+  }
+
+  .h1container {
+    position: absolute;
+    transition-duration: .5s;
+  }
+
+  .c1 {transform: translate(1em, 1em);}
+  .c2 {transform: translate(-.5em, .3em);}
+  .c3 {transform: translate(.8em, -.4em);}
+  .c4 {transform: translate(-1.5em, .7em);}
+  .c5 {transform: translate(.2em, -.6em);}
+
+  .trigger:hover .h1container {
+    transform: translate(0);
+  }
+
+  .open .longname {
+    font-size: 0;
+    transform: rotateX(90deg);
+  }
+
+  .content {
+    background-color: black;
+    font-size: 30px;
+  }
+
+  #bottone {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+  }
+
+
+
+
+
+
+  </style>
+
+  <body class="">
+
+    <div class="container">
+
+      <div class="trigger">
+        <div class="h1container c1">
+          <h1 class="t t1">DIDACOMMUNICATIONLAB</h1>
+        </div>
+        <div class="h1container c2">
+          <h1 class="t t2">DIDACOMMUNICATIONLAB</h1>
+        </div>
+        <div class="h1container c3">
+          <h1 class="t t3">DIDACOMMUNICATIONLAB</h1>
+        </div>
+        <div class="h1container c4">
+          <h1 class="t t4">DIDACOMMUNICATIONLAB</h1>
+        </div>
+        <div class="h1container c5">
+          <h1 class="t t5">DIDACOMMUNICATIONLAB</h1>
+        </div>
+      </div>
+      <svg width="100%" height="100%" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+       <path id="path">
+          <animate attributeName="d" from="m0,0 h0" to="m0,100 h2100" dur="6.8s" begin="0s" repeatCount="indefinite"/>
+        </path>
+        <text font-size=".5vw" >
+          <textPath xlink:href="#path">laboratorio&nbspdi&nbspcomunicazione&nbspdel&nbspdipartimento&nbspdi&nbsparchitettura&nbspdell’università&nbspdi&nbspfirenze
+          </textPath>
+        </text>
+      </svg>
+    </div>
+
+    <div class="content">
+      bla
+    </div>
+
+    <a id="bottone" href="#">O</a>
+
+
+
+  <script>
+    document.querySelector("#bottone").addEventListener("click", function(){
+      document.querySelector("body").classList.toggle("open");
+
+    })
+  </script>
+
+  </body>
+</html>
