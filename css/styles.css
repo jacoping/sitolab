@@ -87,7 +87,7 @@ svg {
   font-size: var(--HEADER_FONT_SIZE);
   padding-left: var(--HEADER_SIDE_PADDING);
   padding-right: var(--HEADER_SIDE_PADDING);
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .logo {
