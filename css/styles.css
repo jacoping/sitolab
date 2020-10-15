@@ -25,10 +25,13 @@
     --HEADER_HEIGHT: 13rem;
     --HEADER_SIDE_PADDING: 2.5vw;
     --TAGLINE_MARGIN_LEFT: 6em;
+    /*
+    --HEADER_HEIGHT: calc(100vh - 3vw);
+    */
 
     --COLUMNS_MIN_WIDTH: 25vw;
-    --COLUMNS_HEADING_HEIGHT: 2.7rem;
-    --COLUMNS_HEADING_FONT_SIZE: 1.5em;
+    --COLUMNS_HEADING_HEIGHT: 2.2rem;
+    --COLUMNS_HEADING_FONT_SIZE: 1.3em;
     --COLUMNS_HEADING_DISPLAY: block;
     --COLUMNS_SIDE_PADDING: 10%;
     --HEADER_COLONNA_ARROWS_DISPLAY: none;
@@ -98,15 +101,48 @@ svg {
   font-size: 2.5em;
 }
 
-.puntini img {
+.logobox {
+  cursor: pointer;
+}
+
+.puntini {
+  margin-right: 0.4em;
+}
+
+.puntini svg {
   height: 1em;
   vertical-align: bottom;
   margin-bottom: 0.05em;
-  margin-right: 0.4em;
 }
 
 .logoname {
   font-size: 1.4em;
+}
+
+.puntini svg {
+  transition-duration: 1s;
+}
+
+.logobox:hover .puntinis {
+  transform: translateX(25vw);
+}
+.logobox:hover #puntino1 {
+  transition-delay: .2s;
+}
+.logobox:hover #puntino2 {
+  transition-delay: .1s;
+}
+.logobox:hover #puntino3 {
+  transition-delay: .0s;
+}
+#puntino1 {
+  transition-delay: .0s;
+}
+#puntino2 {
+  transition-delay: .1s;
+}
+#puntino3 {
+  transition-delay: .2s;
 }
 
 
