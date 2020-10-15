@@ -24,21 +24,17 @@
   <div class="header">
 
     <div class="logo">
-      <span class="puntini"> <img src="./pics/puntini.svg" alt="•••"> </span>
-      <span class="logoname">DIDACOMMUNICATIONLAB</span><br>
-      <span class="tagline">Dipartimento di Architettura dell'Università di Firenze</span>
+      <div class="puntini"> <img src="./pics/puntini.svg" alt="•••"></div>
+      <div class="logoname">didacommunicationlab</div>
     </div>
 
 
     <div class="menu">
       <span class="menu-item active"> <a href=""> NEWS </a> </span>
-      <span class="sbarra-menu">/</span>
       <span class="menu-item"> <a href=""> PROJECTS </a> </span>
-      <span class="sbarra-menu">/</span>
       <span class="menu-item"> <a href=""> ARCHIVE </a> </span>
-      <span class="sbarra-menu">/</span>
       <span class="menu-item"> <a href=""> ABOUT </a> </span>
-      <span class="sbarra-menu">/</span>
+      <!--
       <span class="menu-item icona"> <a href="">
           <svg id="facebook-logo" data-name="facebook-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.17 26.17">
             <path
@@ -54,7 +50,10 @@
             <path class="cls-1" d="M13.09,6.06a7,7,0,1,0,7,7A7,7,0,0,0,13.09,6.06Zm0,12.36a5.34,5.34,0,1,1,5.34-5.34A5.34,5.34,0,0,1,13.09,18.42Z" />
             <path class="cls-1" d="M20.74,4a1.47,1.47,0,1,0,1.47,1.47A1.47,1.47,0,0,0,20.74,4Z" />
           </svg>
-        </a> </span>
+        </a>
+      </span>
+      -->
+
     </div>
 
     <div class="hamburger hamburger--elastic">
@@ -150,7 +149,6 @@
       var result = pieces[2] + "/" + pieces[1] + "/" + pieces[0]
       return result;
     }
-
   </script>
 
 
@@ -204,7 +202,6 @@
 
 
   <script type="text/javascript">
-
     var data_feed = {
       project_updates: {},
       corsi_workshop: {},
@@ -298,12 +295,6 @@
     getData(api_urls.mostre_talks, function() {
       data_feed.mostre_talks = JSON.parse(this.responseText).data;;
     });
-
-
-
-
-
-
   </script>
 
 

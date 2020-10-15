@@ -22,7 +22,7 @@
     :root {
       --ROOT_FONT_SIZE: 1.2vw;
       --HEADER_FONT_SIZE: 1rem;
-      --HEADER_HEIGHT: 10rem;
+      --HEADER_HEIGHT: 13rem;
       --HEADER_SIDE_PADDING: 2.5vw;
       --TAGLINE_MARGIN_LEFT: 6em;
 
@@ -57,7 +57,7 @@
     box-sizing: border-box;
     text-decoration: none;
     color: inherit;
-    line-height: 1.2;
+    line-height: inherit;
   }
 
 
@@ -67,10 +67,8 @@
   html {
     font-family: neue-haas-grotesk-text, sans-serif;
     font-weight: var(--ROMAN);
-  }
-
-  html {
     font-size: var(--ROOT_FONT_SIZE);
+    line-height: 1.2;
   }
 
   svg {
@@ -87,37 +85,37 @@
     justify-content: space-between;
     height: var(--HEADER_HEIGHT);
     font-size: var(--HEADER_FONT_SIZE);
-    padding-top: 1em;
     padding-left: var(--HEADER_SIDE_PADDING);
     padding-right: var(--HEADER_SIDE_PADDING);
+    margin-top: 1rem;
   }
 
   .logo {
-    font-size: 1.9em;
-    margin-top: 0.2em;
+    font-weight: 600;
     max-width: 80vw;
-    line-height: 0.5;
+    line-height: 1.2;
+    margin-top: 0em;
+    font-size: 2.5em;
   }
 
   .puntini img {
-    height: 0.9em;
+    height: 1em;
     vertical-align: bottom;
     margin-bottom: 0.05em;
     margin-right: 0.4em;
   }
 
-  .tagline {
-    font-family: neue-haas-grotesk-display, sans-serif;
-    font-weight: 300;
-    font-size: .61em;
-    margin-left: var(--TAGLINE_MARGIN_LEFT);
+  .logoname {
+    font-size: 1.2em;
   }
+
 
   .menu {
     display: none;
     color: #ccc;
-    font-size: 1.6em;
+    font-size: 2em;
     margin-top: 0.3em;
+    text-align: right;
   }
 
   .hamburger {
@@ -137,7 +135,8 @@
     }
 
     .menu {
-      display: block;
+      display: flex;
+      flex-direction: column;
     }
   }
 
