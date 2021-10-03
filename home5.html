@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://use.typekit.net/lrj7kma.css">
+
+</head>
+
+<style media="screen">
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: inherit;
+    line-height: 1.2;
+  }
+
+
+  /* GENERALI */
+
+  html {
+    font-family: neue-haas-grotesk-display, sans-serif;
+  }
+
+
+
+  /* STILI */
+
+  body {
+    margin: .5vw 2vw;
+
+  }
+
+  h1,
+  h2 {
+    transition-duration: 1s;
+  }
+
+  h2 {
+    font-weight: 600;
+    line-height: 0.9;
+    padding-left: 0.15em;
+    word-break: break-word;
+  }
+
+  .logo {
+    font-size: 6vw;
+  }
+  .longname {
+    font-size: 9.5vh;
+  }
+
+  .trigger {
+    width: 75vw;
+    height: 9vw;
+    -border: 1px solid red;
+  }
+
+  .open .longname {
+    font-size: 0;
+    transform: rotateX(90deg);
+  }
+
+  .main {
+    background-color: black;
+    font-size: 30px;
+    margin-top: 3vw;
+  }
+
+  #bottone {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+  }
+
+
+  .light {
+    font-weight: 300;
+    line-height: 0.9;
+  }
+</style>
+
+
+
+<body class="">
+
+  <div class="header">
+
+    <div class="logo h1container c1">
+      <h2>didacommunicationlab</h2>
+    </div>
+
+    <h2 class="longname"> <span class="light">laboratorio&nbspdi&nbspcomunicazione&nbspdel&nbspdipartimento&nbspdi&nbsparchitettura&nbspdell’università&nbspdegli&nbspstudi&nbspdi&nbspfirenze</span></h2>
+
+  </div>
+
+  <div class="main">
+    bla
+  </div>
+
+  <a id="bottone" href="#">O</a>
+
+
+
+  <script>
+    document.querySelector("#bottone").addEventListener("click", function() {
+      document.querySelector("body").classList.toggle("open");
+
+    })
+  </script>
+
+
+
+
+
+
+  <div class="monitor">
+    prova
+  </div>
+  <style media="screen">
+    .monitor {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      background-color: red;
+      color: white;
+      padding: 3px;
+    }
+  </style>
+  <script type="text/javascript">
+    var updateMonitor = function() {
+      var h = Window.innerHeight;
+      var w = Window.innerWidth;
+      document.querySelector(".monitor").
+    }
+  </script>
+
+
+
+</body>
+
+</html>
